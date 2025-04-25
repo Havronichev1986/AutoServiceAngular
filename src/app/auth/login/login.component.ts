@@ -19,15 +19,22 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
+    if (!this.email || !this.password) {
+      alert('Ошибка: Все поля должны быть заполнены');
+      console.error('Ошибка: Все поля должны быть заполнены');
+      return;
+    }
     this.authService
       .login({ email: this.email, password: this.password })
       .subscribe({
         next: (response) => {
           localStorage.setItem('token', response.token);
           console.log('Успешный вход!', response);
-          this.router.navigate(['/admin']);
+          alert('Добро пожаловать - ' + this.email);
+          if(response)this.router.navigate(['/home']);
         },
         error: (err) => {
+          alert('Не верный email или passwor');
           console.error('Ошибка входа', err);
         },
       });

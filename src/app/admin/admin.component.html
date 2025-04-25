@@ -44,7 +44,7 @@
     </div>
 
     <!-- Пагинация -->
-    <nav *ngIf="filteredUsers().length > pageSize">
+    <!-- <nav *ngIf="filteredUsers().length > pageSize">
       <ul class="pagination justify-content-center">
         <li
           class="page-item"
@@ -69,10 +69,39 @@
           <a class="page-link" href="#">Вперёд</a>
         </li>
       </ul>
+    </nav> -->
+
+
+    <nav *ngIf="pages().length > 1">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+          <a class="page-link" href="#" (click)="prevPage()">Назад</a>
+        </li>
+  
+        <li
+          class="page-item"
+          *ngFor="let page of pages()"
+          [class.active]="page === currentPage"
+          (click)="goToPage(page)"
+        >
+          <a class="page-link" href="#">{{ page }}</a>
+        </li>
+  
+        <li class="page-item" [class.disabled]="currentPage === pages().length">
+          <a class="page-link" href="#" (click)="nextPage()">Вперёд</a>
+        </li>
+      </ul>
     </nav>
+
   </div>
 
   <ng-template #noAccess>
     <p>У вас нет доступа к этой странице.</p>
   </ng-template>
 </div>
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Автосервис. Все права защищены.</p>
+    <a href="/home">На главную</a>
+  </div>
+</footer>

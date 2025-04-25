@@ -85,7 +85,7 @@ export class AuthService {
       const token = localStorage.getItem('token');
       if (token) {
         const decoded: JwtPayload = jwtDecode(token);
-        console.log('JWT payload:', decoded); // для отладки
+        console.log('JWT payload:', decoded); 
         return decoded.roles || [];
       }
     }
