@@ -6,10 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-register',
-    imports: [CommonModule, FormsModule, HttpClientModule],
-    templateUrl: './register.component.html',
-    styleUrls: ['./register.component.css']
+  selector: 'app-register',
+  imports: [CommonModule, FormsModule, HttpClientModule],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
   email = '';
@@ -24,6 +24,11 @@ export class RegisterComponent {
       console.error('Ошибка: Неверный формат email');
       return;
     }
+    if (!this.email || !this.password) {
+      alert('Ошибка: Все поля должны быть заполнены');
+      console.error('Ошибка: Все поля должны быть заполнены');
+      return;
+    }
     this.authService
       .register({ email: this.email, password: this.password })
       .subscribe({
@@ -33,8 +38,12 @@ export class RegisterComponent {
           this.router.navigate(['/login']);
         },
         error: (err) => {
-          alert('Ошибка регестрации, пользователь с именем ' + this.email + ' уже существует!' ),
-          console.error('Ошибка регистрации', err);
+          alert(
+            'Ошибка регестрации, пользователь с именем ' +
+              this.email +
+              ' уже существует!'
+          ),
+            console.error('Ошибка регистрации', err);
         },
       });
   }
