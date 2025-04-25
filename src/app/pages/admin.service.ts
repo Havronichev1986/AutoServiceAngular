@@ -10,7 +10,7 @@ export interface User {
 
 @Injectable({ providedIn: 'root' })
 export class AdminService {
-  private apiUrl = 'http://localhost:8080/api/admin/users'; // Подставь свой URL
+  private apiUrl = 'http://localhost:8080/api/admin/users';
 
   constructor(private http: HttpClient) {}
 

@@ -25,11 +25,12 @@ export class LoginComponent {
         next: (response) => {
           localStorage.setItem('token', response.token);
           console.log('Успешный вход!', response);
+          this.router.navigate(['/admin']);
         },
         error: (err) => {
           console.error('Ошибка входа', err);
         },
       });
-    this.router.navigate(['/admin']);
+    
   }
 }

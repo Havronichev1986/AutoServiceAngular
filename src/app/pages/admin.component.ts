@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../auth/service';
 
 @Component({
   standalone: true,
@@ -17,9 +18,12 @@ export class AdminComponent implements OnInit {
   currentPage = 1;
   pageSize = 5;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public authService: AuthService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    const roles = this.authService.getRolesFromToken();
+    console.log('Роли пользователя:', roles);
+    console.log('isAdmin:', this.authService.hasRole('ADMIN'));
     this.loadUsers();
   }
 
