@@ -6,9 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterModule, CommonModule],
-  template: `<router-outlet></router-outlet>`,
+    selector: 'app-root',
+    imports: [RouterModule, CommonModule],
+    template: `<router-outlet></router-outlet>`
 })
 export class AppComponent {}
