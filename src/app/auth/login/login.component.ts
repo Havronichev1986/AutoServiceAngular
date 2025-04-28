@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
+    standalone: true,
     imports: [CommonModule, FormsModule, HttpClientModule],
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
@@ -30,7 +31,7 @@ export class LoginComponent {
           localStorage.setItem('token', response.token);
           console.log('Успешный вход!', response);
           alert('Добро пожаловать - ' + this.email);
-          if(response)this.router.navigate(['/home']);
+          if(response)this.router.navigate(['/page-of-services']);
         },
         error: (err) => {
           alert('Не верный email или passwor');

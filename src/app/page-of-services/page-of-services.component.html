@@ -1,0 +1,45 @@
+  <body>
+    <header>
+      <div class="container">
+        <h1>Автосервис</h1>
+        <nav>
+          <button class="btn" (click)="logout()">
+            Выйти
+          </button>
+        </nav>
+      </div>
+    </header>
+  
+    <main class="background" [ngStyle]="{'background-image': 'url(/assets/images/1.jpg)'}">
+      <div class="hero">
+        <!-- <h2>Добро пожаловать в наш автосервис!</h2>
+        <p>Мы предлагаем услуги по ремонту и обслуживанию автомобилей всех марок и моделей.</p> -->
+        <a href="/record" class="btn-primary">Запись на ремонт</a>
+      </div>
+  
+      <section class="features">
+        <div class="feature-item">
+          <img src="assets/images/4.png" alt="Ремонт автомобилей">
+          <h3>Ремонт автомобилей</h3>
+          <p>Наши специалисты помогут вам с любыми проблемами вашего автомобиля.</p>
+        </div>
+        <div class="feature-item">
+          <img src="assets/images/3.png" alt="Замена шин">
+          <h3>Замена шин</h3>
+          <p>Быстрая и качественная замена шин для любых автомобилей.</p>
+        </div>
+        <div class="feature-item">
+          <img src="assets/images/2.png" alt="Замена масла">
+          <h3>Замена масла</h3>
+          <p>Регулярная замена масла – залог долгой работы вашего авто.</p>
+        </div>
+      </section>
+    </main>
+  
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Автосервис. Все права защищены.</p>
+        <a href="/admin">Администрация</a>
+      </div>
+    </footer>
+  </body>
