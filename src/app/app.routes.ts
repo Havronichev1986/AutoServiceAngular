@@ -4,6 +4,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { PageOfServicesComponent } from './page-of-services/page-of-services.component';
+import { OrderFormComponent } from './order/order.component';
 
 export const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,5 +12,6 @@ export const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent},
   { path: 'admin', component: AdminComponent},
-  { path: 'page-of-services', component:PageOfServicesComponent}
+  { path: 'page-of-services', component:PageOfServicesComponent},
+  { path: 'order' , component:OrderFormComponent},
 ];

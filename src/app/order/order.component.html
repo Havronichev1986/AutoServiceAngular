@@ -1,0 +1,30 @@
+<div class="auth-container">
+    <h2>Запись на ремонт</h2>
+  
+    <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+      <label for="brand">Марка авто:</label>
+      <input formControlName="brand" id="brand" />
+  
+      <label for="vinNumber">VIN номер:</label>
+      <input formControlName="vinNumber" id="vinNumber" />
+  
+      <label for="description">Описание ремонта:</label>
+      <textarea formControlName="description" id="description"></textarea>
+  
+      <label for="date">Дата:</label>
+      <input type="date" formControlName="date" id="date" />
+  
+      <label for="status">Статус:</label>
+      <select formControlName="status" id="status">
+        <option value="Запланировано">Запланировано</option>
+        <option value="В процессе">В процессе</option>
+        <option value="Завершено">Завершено</option>
+      </select>
+  
+      <button type="submit" [disabled]="orderForm.invalid">Отправить заявку</button>
+      <a href="/page-of-services" class="btn-primary">На главную</a>
+    </form>
+  
+    <p *ngIf="successMessage" style="color: green;">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+  </div>
